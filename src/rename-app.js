@@ -20,9 +20,9 @@ module.exports = function (context) {
 
     var projectRoot = context.opts.projectRoot;
 
-    const usesNewStructure = fs.existsSync(path.join(projectRoot, 'platforms', 'android', 'app'));
+    const usesNewStructure = fs.existsSync(path.join(projectRoot, 'platforms', 'android', 'app', 'AndroidManifest.xml'));
     const basePath = usesNewStructure ? path.join(projectRoot, 'platforms', 'android', 'app', 'src', 'main') : path.join(projectRoot, 'platforms', 'android');
-    var configPath = path.join(basePath, 'res', 'xml', 'config.xml');
+    var configPath = path.join(basePath, '..', '..', 'config.xml');
     var stringsPath = path.join(basePath, 'res', 'values', 'strings.xml');
     var stringsXml, name;
 
@@ -34,7 +34,7 @@ module.exports = function (context) {
         return;
     }
 
-    name = getConfigParser(context, configPath).getPreference('AppName');
+    name = getConfigParser(context, configPath).shortName();
 
     if (name) {
         stringsXml = fs.readFileSync(stringsPath, 'UTF-8');
