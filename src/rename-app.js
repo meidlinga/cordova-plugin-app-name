@@ -21,7 +21,7 @@ module.exports = function (context) {
     var projectRoot = context.opts.projectRoot;
 
     const basePath = path.join(projectRoot, 'platforms', 'android', 'app', 'src', 'main');
-    var configPath = path.join(basePath, '..', '..', 'config.xml');
+    var configPath = path.join(basePath, 'res', 'xml', 'config.xml');
     var stringsPath = path.join(basePath, 'res', 'values', 'strings.xml');
     var stringsXml, name;
 
