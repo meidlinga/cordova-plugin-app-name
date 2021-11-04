@@ -20,7 +20,7 @@ module.exports = function (context) {
 
     var projectRoot = context.opts.projectRoot;
 
-    const usesNewStructure = fs.existsSync(path.join(projectRoot, 'platforms', 'android', 'app', 'AndroidManifest.xml'));
+    const usesNewStructure = fs.existsSync(path.join(projectRoot, 'platforms', 'android', 'app', 'src', 'main', 'AndroidManifest.xml'));
     const basePath = usesNewStructure ? path.join(projectRoot, 'platforms', 'android', 'app', 'src', 'main') : path.join(projectRoot, 'platforms', 'android');
     var configPath = path.join(basePath, '..', '..', 'config.xml');
     var stringsPath = path.join(basePath, 'res', 'values', 'strings.xml');
